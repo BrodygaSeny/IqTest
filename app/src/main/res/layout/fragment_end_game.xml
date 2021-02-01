@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.sentrin.iqtest.ui.endGame.EndGameViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.endGame.EndGameFragment">
+
+        <TextView
+            android:id="@+id/endGameUserIq"
+            android:layout_width="111dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/wonGameIq"
+            android:textAlignment="center"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/endGameUserStatus"
+            tools:text="10 IQ" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/end_game_repeat"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="@+id/textView2"
+            app:layout_constraintEnd_toEndOf="@+id/endGameRepeatQuestsButton"
+            app:layout_constraintHorizontal_bias="0.558"
+            app:layout_constraintStart_toStartOf="@+id/endGameRepeatQuestsButton"
+            app:layout_constraintTop_toTopOf="@+id/textView2"
+            app:layout_constraintVertical_bias="0.47" />
+
+        <TextView
+            android:id="@+id/endGameYouText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="Вы:"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/endGameTextTitle" />
+
+        <TextView
+            style = "@style/user_status"
+            android:id="@+id/endGameUserStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewmodel.userStatus}"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.506"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/endGameYouText"
+            tools:text="Простейшее" />
+
+        <TextView
+            android:id="@+id/endGameTextTitle"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:gravity="center"
+            android:text="@string/end_game_title"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.519"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/endGameToMainButton"
+            style="@style/buttonAccess"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:layout_marginBottom="24dp"
+            android:text="@string/back"
+            android:onClick="@{()->viewmodel.onHome()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/endGameRepeatQuestsButton"
+            style="@style/buttonAccess"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->viewmodel.onAgain()}"
+            android:padding="10dp"
+            android:text="Заново"
+            app:layout_constraintBottom_toBottomOf="@+id/endGameToMainButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.529"
+            app:layout_constraintStart_toEndOf="@+id/endGameToMainButton"
+            app:layout_constraintTop_toTopOf="@+id/endGameToMainButton" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/end_game_gotoMain"
+            app:layout_constraintBottom_toTopOf="@+id/endGameToMainButton"
+            app:layout_constraintEnd_toEndOf="@+id/endGameToMainButton"
+            app:layout_constraintStart_toStartOf="@+id/endGameToMainButton" />
+
+        <Button
+            android:id="@+id/endGameShareButton"
+            style="@style/button_motivate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:text="@string/share_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.519"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/endGameShareText" />
+
+        <TextView
+            android:id="@+id/endGameShareText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="57dp"
+            android:gravity="center"
+            android:text="@string/end_game_share_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/endGameUserIq" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

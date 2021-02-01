@@ -1,0 +1,22 @@
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item>
+        <shape
+            android:layout_height="match_parent"
+            android:shape="oval">
+            <gradient
+                android:angle="135"
+                android:centerColor="@color/blue"
+                android:endColor="@color/blue_dark"
+                android:startColor="@color/blue_light"
+                android:type="linear" />
+
+            <size
+                android:width="120dp"
+                android:height="120dp" />
+
+        </shape>
+
+    </item>
+    <item android:drawable="@drawable/logo3" />
+</layer-list>

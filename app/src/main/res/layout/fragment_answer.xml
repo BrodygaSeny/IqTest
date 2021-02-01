@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.sentrin.iqtest.ui.answer.AnswerViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+    >
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+            android:layout_above="@+id/answerBottomConstraint"
+            android:fillViewport="true"
+
+            android:overScrollMode="never"
+            android:scrollbars="none"
+
+            tools:layout_editor_absoluteX="0dp"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:context=".ui.endGame.endGameFragment">
+
+
+                <TextView
+                    android:id="@+id/answerUserIq"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center"
+                    android:text="@string/wonGameIq"
+                    android:textAlignment="center"
+                    android:textColor="@color/redText"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/answerUserStatus"
+                    tools:text="10 IQ" />
+
+                <TextView
+                    android:id="@+id/answerRightAnswer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:paddingStart="30dp"
+                    android:paddingEnd="30dp"
+                    android:gravity="center"
+                    android:text="@string/answerRightAnswer"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/answerTextTitle" />
+
+                <TextView
+                    android:id="@+id/answerYouText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="Вы:"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/answerRightAnswer" />
+
+                <TextView
+                    style = "@style/user_status"
+                    android:id="@+id/answerUserStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@{viewmodel.userStatus}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/answerYouText"
+                    tools:text="Простейшее" />
+
+                <TextView
+                    android:id="@+id/answerTextTitle"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="42dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/redText"
+                    android:gravity="center"
+                    android:text="@{viewmodel.answerTitleText}"
+                    android:textAlignment="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.496"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="@string/answerRight1" />
+
+                <ImageView
+                    android:id="@+id/answerDescriptionImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    app:imgId="@{viewmodel.question.imgId}"
+                    android:adjustViewBounds="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/answerUserIq"
+                    tools:srcCompat="@tools:sample/avatars"
+                    />
+
+                <TextView
+                    android:id="@+id/descriptionTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@{viewmodel.question.descriptionTitle}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/answerDescriptionImage"
+                    tools:text="title" />
+
+                <TextView
+                    android:id="@+id/descriptionResource"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:layout_marginTop="15dp"
+                    android:paddingStart="30dp"
+                    android:paddingEnd="45dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@color/gray"
+                    android:text="@{viewmodel.question.descriptionResource}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.501"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/answerDescriptionText"
+                    tools:text="resource: http://google.com" />
+
+                <TextView
+                    android:id="@+id/answerDescriptionText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="30dp"
+                    android:paddingEnd="30dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@{viewmodel.question.description}"
+                    app:justify="@{true}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/descriptionTitle"
+                    tools:text="description\ndescription\ndescription" />
+
+                <TextView
+                    android:id="@+id/iqChangeText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/answerUserIq"
+                    app:layout_constraintStart_toEndOf="@+id/answerUserIq"
+                    app:layout_constraintTop_toTopOf="@+id/answerUserIq"
+
+                    tools:text = "+5 IQ"
+                    />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/answerBottomConstraint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_alignParentBottom = "true">
+
+            <Button
+                android:id="@+id/answerToMainButton"
+                style="@style/buttonAccess"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                android:onClick="@{() -> viewmodel.onBack()}"
+                android:text="@string/answerBack"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/answerRepeatQuestsButton"
+                style="@style/buttonAccess"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> viewmodel.onNext()}"
+                android:padding="10dp"
+                android:text="@string/answerNextQuestion"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.917"
+                app:layout_constraintStart_toEndOf="@+id/answerToMainButton"
+                app:layout_constraintTop_toTopOf="@+id/answerToMainButton" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </RelativeLayout>
+
+
+
+
+
+</layout>

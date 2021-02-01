@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.sentrin.iqtest.ui.firstStart.FirstStartViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.firstStart.FirstStartFragment">
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchThemeStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:checked="@{viewmodel.darkTheme}"
+            android:fontFamily="sans-serif"
+            android:text="@string/black_theme_text"
+            android:textColor="@color/text_color_default"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/firstStartUserStartIQ"
+            android:layout_width="111dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="@string/wonGameIq"
+            android:textAlignment="center"
+            android:textColor="@color/redText"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.486"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/firstStartYouStartIqText"
+            tools:text="10 IQ" />
+
+        <TextView
+            android:id="@+id/firstStartYouStartIqText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/you_start_iq_text"
+            app:layout_constraintBottom_toTopOf="@+id/switchThemeStart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.506"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/personNameEdit"
+            app:layout_constraintVertical_bias="0.095" />
+
+        <TextView
+            android:id="@+id/homeTitleText"
+            style="@style/commonTextCenter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/firs_start_text"
+            app:layout_constraintBottom_toTopOf="@+id/switchThemeStart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.241" />
+
+        <Button
+            android:id="@+id/home_start_button"
+            style="@style/buttonAccess"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->viewmodel.onStart()}"
+            android:text="@string/home_start_button"
+            app:layout_constraintBottom_toTopOf="@+id/switchThemeStart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/firstStartUserStartIQ"
+            app:layout_constraintVertical_bias="0.421" />
+
+        <TextView
+            android:id="@+id/personNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/your_name"
+            app:layout_constraintBottom_toTopOf="@+id/switchThemeStart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeTitleText"
+            app:layout_constraintVertical_bias="0.138" />
+
+        <EditText
+            android:id="@+id/personNameEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@string/defaultName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/personNameTextView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
